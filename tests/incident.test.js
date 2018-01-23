@@ -40,19 +40,7 @@ describe('Incidents', function(){
     incidentService.archive(incident._id);
     var incidents = incidentService.getIncidents();
 
-    console.log(incidents);
-    assert.equal(incidentService.getIncidents().length, 2, "Get Incedent");
+    
+    assert.equal(incidentService.getIncidents().length, 2, "Validate incidents archiving");
   });
-  
-  it('It should allow retrieving a list of incidents without archive', function(){
-    /*var incidentService = new IncidentService(); 
-    var result = incidentService.save({ _id = "eWRhpRV",
-    kind = "MURDER", // One of [ROBBERY, MURDER, TRAFFIC_ACCIDENT, SHOOTING, ASSAULT]
-    locationId = "23TplPdS",
-    happenedAt = "2018-01-16T17:14:54.732Z",
-    isArchived = false});
-
-    assert.equal(incidentService.getIncidents().length, 1, "The list don't get the correct incidents");*/
-  });
-
 });
