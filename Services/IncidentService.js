@@ -10,17 +10,17 @@ class IncidentService{
     }
 
     getIncidents(){
-        return this.incidents;
+        return this.incidents.filter(i=>i.isArchived === false);
     }
 
     getSingleIncident(id){
-        var incident = this.incidents.filter(i=>i._id === id && i.isArchived == false)[0];
+        var incident = this.incidents.filter(i=>i._id === id && i.isArchived === false)[0];
 
         return incident || null;
     }
     
     save(model){
-        model.id = uuid.v4();
+        model._id = uuid.v4();
         this.incidents.push(model);
         return true;
     }

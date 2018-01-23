@@ -21,18 +21,30 @@ describe('Incidents', function(){
     model.Kind = "MURDER";
     model.HappenedAt = "2018-01-16T17:14:54.732Z";
     model.isArchived = false;
+
     var result = incidentService.save(model);
-    console.log(incidentService.getIncidents());
-    assert.equal(incidentService.getIncidents().length, 1, "The list don't get the correct incidents");
+    assert.equal(incidentService.getIncidents().length, 2, "The list don't get the correct incidents");
   });
 
   
   it('It should allow archiving incidents', function(){
-    incidentService.archive("eWRhpRV");
-    assert.equal(locality.name, "Santo Domingo", "Localiy it should be 1");
+
+    var model = new Incident();
+    model.Kind = "MURDER";
+    model.HappenedAt = "2018-01-16T17:14:54.732Z";
+    model.isArchived = false;
+    
+    var result = incidentService.save(model);
+    var incident = incidentService.getIncidents()[0];
+    
+    incidentService.archive(incident._id);
+    var incidents = incidentService.getIncidents();
+
+    console.log(incidents);
+    assert.equal(incidentService.getIncidents().length, 2, "Get Incedent");
   });
   
-  it('It should allow retrieving a list of incidents', function(){
+  it('It should allow retrieving a list of incidents without archive', function(){
     /*var incidentService = new IncidentService(); 
     var result = incidentService.save({ _id = "eWRhpRV",
     kind = "MURDER", // One of [ROBBERY, MURDER, TRAFFIC_ACCIDENT, SHOOTING, ASSAULT]

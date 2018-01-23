@@ -1,10 +1,10 @@
 class Incident{
     constructor(){
-        /*this._id = "eWRhpRV",
-        this.kind = "ROBBERY",
-        this.locationId = "23TpLPDdsS",
-        this.happenedAt = "2018-01-01",
-        this.isArchived = false*/
+        this._id = "",
+        this.kind = "",
+        this.locationId = "",
+        this.happenedAt = "",
+        this.isArchived = false
     }
 
     get_Id(){
